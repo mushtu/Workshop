@@ -1,7 +1,7 @@
-package com.mammutgroup.workshop.core.server.ws.rest.management;
+package com.mammutgroup.workshop.core.server.rest.management;
 
 import com.mammutgroup.workshop.common.core.model.dto.WorkshopDto;
-import com.mammutgroup.workshop.core.server.ws.rest.RepositoryRestService;
+import com.mammutgroup.workshop.core.server.rest.RepositoryRestService;
 
 import javax.ws.rs.Path;
 

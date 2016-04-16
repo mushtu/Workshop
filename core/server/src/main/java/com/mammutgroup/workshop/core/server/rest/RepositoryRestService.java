@@ -1,4 +1,4 @@
-package com.mammutgroup.workshop.core.server.ws.rest;
+package com.mammutgroup.workshop.core.server.rest;
 
 import ir.amv.os.vaseline.base.core.shared.base.dto.base.IBaseDto;
 import ir.amv.os.vaseline.base.core.shared.base.dto.paging.PagingDto;

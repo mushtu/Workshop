@@ -1,9 +1,8 @@
-package com.mammutgroup.workshop.core.server.ws.rest.management.impl;
+package com.mammutgroup.workshop.core.server.rest.management.impl;
 
 import com.mammutgroup.workshop.common.core.model.dto.EmployeeDto;
+import com.mammutgroup.workshop.core.server.rest.management.EmployeeRepositoryRestService;
 import com.mammutgroup.workshop.core.server.service.EmployeeService;
-import com.mammutgroup.workshop.core.server.ws.rest.RepositoryRestService;
-import com.mammutgroup.workshop.core.server.ws.rest.management.EmployeeRepositoryRestService;
 import ir.amv.os.vaseline.ws.rest.server.base.crud.impl.BaseCrudRestServiceImpl;
 import org.springframework.stereotype.Service;
 

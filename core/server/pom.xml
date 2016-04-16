@@ -119,21 +119,21 @@
             <version>1.0-SNAPSHOT</version>
             <artifactId>vaseline-reporting-async-impl</artifactId>
         </dependency>
-        <dependency>
-            <groupId>ir.amv.enterprise.vaseline.reporting</groupId>
-            <version>1.0-SNAPSHOT</version>
-            <artifactId>vaseline-enterprise-report-generator-async-impl</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ir.amv.enterprise.vaseline.mammut</groupId>
-            <version>1.0-SNAPSHOT</version>
-            <artifactId>vaseline-enterprise-paging-custom</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ir.amv.enterprise.vaseline.reporting</groupId>
-            <artifactId>vaseline-enterprise-report-generator</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ir.amv.enterprise.vaseline.reporting</groupId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+            <!--<artifactId>vaseline-enterprise-report-generator-async-impl</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>ir.amv.enterprise.vaseline.mammut</groupId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+            <!--<artifactId>vaseline-enterprise-paging-custom</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>ir.amv.enterprise.vaseline.reporting</groupId>-->
+            <!--<artifactId>vaseline-enterprise-report-generator</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>org.springframework</groupId>

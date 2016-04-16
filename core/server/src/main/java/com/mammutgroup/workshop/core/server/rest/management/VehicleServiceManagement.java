@@ -1,4 +1,4 @@
-package com.mammutgroup.workshop.core.server.ws.rest.management;
+package com.mammutgroup.workshop.core.server.rest.management;
 
 import com.mammutgroup.workshop.common.core.model.request.VehicleServiceRequest;
 import ir.amv.os.vaseline.ws.rest.server.base.parent.IBaseRestService;
@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
  * @since 4/10/16.
  */
 
+@Path("/services")
 public interface VehicleServiceManagement extends IBaseRestService {
 
 
@@ -25,10 +26,10 @@ public interface VehicleServiceManagement extends IBaseRestService {
      *
      * @return
      */
-    @Path("/")
+    @Path("/request")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    Response startService(VehicleServiceRequest request);
+    void startService(VehicleServiceRequest request);
 
     @Path("/lines")
     @GET
@@ -40,7 +41,14 @@ public interface VehicleServiceManagement extends IBaseRestService {
      *
      * @return
      */
-    Response claimService();
+    void claimService();
+
+    @Path("candidates")
+    void addCandidate();
+
+    @Path("/")
+    void assignService();
+
 
 
 }

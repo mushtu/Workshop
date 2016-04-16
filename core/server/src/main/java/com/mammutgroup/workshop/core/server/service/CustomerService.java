@@ -1,10 +1,14 @@
 package com.mammutgroup.workshop.core.server.service;
 
-import com.mammutgroup.workshop.core.server.service.crud.CustomerCrudService;
+import com.mammutgroup.workshop.common.core.model.enums.VehicleServiceState;
 
 /**
- * @author mushtu
- * @since 4/14/16.
+ * Created by mushtu on 4/14/16.
  */
-public interface CustomerService extends CustomerCrudService {
+public interface CustomerService {
+
+    void registerServiceRequest();
+
+    VehicleServiceState getServiceState();
+
 }

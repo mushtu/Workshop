@@ -1,15 +1,12 @@
-package com.mammutgroup.workshop.core.server.ws.rest.management;
+package com.mammutgroup.workshop.core.server.rest.management;
 
 import com.mammutgroup.workshop.common.core.model.dto.LineDto;
-import com.mammutgroup.workshop.core.server.service.LineService;
+import com.mammutgroup.workshop.core.server.rest.RepositoryRestService;
 
-import com.mammutgroup.workshop.core.server.ws.rest.RepositoryRestService;
 import ir.amv.os.vaseline.base.core.shared.base.dto.paging.PagingDto;
 import ir.amv.os.vaseline.base.core.shared.base.exc.BaseVaselineClientException;
-import ir.amv.os.vaseline.ws.rest.server.base.crud.impl.BaseCrudRestServiceImpl;
 import ir.amv.os.vaseline.ws.rest.server.multiparam.annot.JsonMultParam;
 import ir.amv.os.vaseline.ws.rest.server.multiparam.annot.JsonParam;
-import org.springframework.stereotype.Service;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
