@@ -1,7 +1,6 @@
 package com.mammutgroup.workshop.core.server.config;
 
-import ir.amv.enterprise.vaseline.mammut.paging.config.VaselineMammutPagingConfig;
-import ir.amv.enterprise.vaseline.reporting.async.impl.config.VaselineReportGeneratorAsyncConfig;
+import com.mammutgroup.workshop.core.server.service.bpm.BpmService;
 import ir.amv.os.vaseline.base.architecture.impl.hibernate.config.VaselineHibernateConfig;
 import ir.amv.os.vaseline.base.caching.config.VaselineCachingConfig;
 import ir.amv.os.vaseline.base.core.server.base.exc.BaseVaselineServerException;
@@ -22,9 +21,12 @@ import ir.amv.os.vaseline.ws.rest.config.VaselineWebServiceRestConfig;
 import ir.amv.os.vaseline.ws.rest.secured.config.VaselineSecuredWebServiceRestConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
+import org.springframework.core.io.Resource;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 
 /**
  * Created by AMV on 2/13/2016.
@@ -42,8 +44,6 @@ import javax.annotation.PostConstruct;
         VaselineReportingCoreImplConfig.class,
         VaselineFileConfig.class,
         VaselineFileDbConfig.class,
-        VaselineReportGeneratorAsyncConfig.class,
-        VaselineMammutPagingConfig.class,
         VaselineAuthenticationInAppConfig.class,
         VaselineBpmActivitiConfig.class,
         ConfigurersConfiguration.class
@@ -55,6 +55,11 @@ public class SampleProjectSpringConfig {
 
     @Autowired
     IBaseUserApi baseUserApi;
+    @Autowired
+    BpmService bpmService;
+
+    @Value("classpath:bpmn/*.xml")
+    Resource[] bpmns;
 
     @PostConstruct
     public void initialize() {
@@ -68,6 +73,15 @@ public class SampleProjectSpringConfig {
                 adminUser.setEnabled(true);
                 baseUserApi.save(adminUser);
             }
+            for(Resource bpmn:bpmns)
+            {
+                try {
+                    bpmService.deployService(bpmn.getFilename(),bpmn.getInputStream());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
         } catch (BaseVaselineServerException e) {
             e.printStackTrace();
         }

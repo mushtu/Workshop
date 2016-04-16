@@ -2,7 +2,7 @@ package com.mammutgroup.workshop.core.server.service.impl;
 
 import com.mammutgroup.workshop.common.core.model.dto.WorkshopDto;
 import com.mammutgroup.workshop.core.server.api.WorkshopApi;
-import com.mammutgroup.workshop.core.server.service.WorkshopService;
+import com.mammutgroup.workshop.core.server.service.management.WorkshopService;
 import com.mammutgroup.workshop.core.shared.domain.model.WorkshopEntity;
 import ir.amv.os.vaseline.base.architecture.impl.server.layers.base.crud.service.BaseCrudServiceImpl;
 import org.springframework.stereotype.Service;

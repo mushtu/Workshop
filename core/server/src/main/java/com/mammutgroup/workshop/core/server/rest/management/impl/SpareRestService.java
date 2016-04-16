@@ -2,7 +2,7 @@ package com.mammutgroup.workshop.core.server.rest.management.impl;
 
 import com.mammutgroup.workshop.common.core.model.dto.SpareDto;
 import com.mammutgroup.workshop.core.server.rest.management.SpareRepositoryRestService;
-import com.mammutgroup.workshop.core.server.service.SpareService;
+import com.mammutgroup.workshop.core.server.service.management.SpareManagementService;
 import ir.amv.os.vaseline.ws.rest.server.base.crud.impl.BaseCrudRestServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Service;
  * @since 4/14/16.
  */
 @Service
-public class SpareRestService extends BaseCrudRestServiceImpl<SpareDto, Long, SpareService> implements SpareRepositoryRestService {
+public class SpareRestService extends BaseCrudRestServiceImpl<SpareDto, Long, SpareManagementService> implements SpareRepositoryRestService {
 }

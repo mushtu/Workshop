@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="vehicleServiceProcess" isExecutable="true" >
+    <startEvent id="vehicleServiceStartEvent" name="Start Event" activiti:initiator="${customer.username}">
+    </startEvent>
+    <sequenceFlow id="sid-1F641067-44A4-4E88-A3A9-55678DF0ACF2" sourceRef="vehicleServiceStartEvent" targetRef="handleCustomerRequestUserTask"></sequenceFlow>
+    <userTask id="handleCustomerRequestUserTask"  name="Handle Customer Request" activiti:candidateGroups="management">
+    </userTask>
+    <sequenceFlow id="sid-7122F0EB-0FD3-4F6B-952E-BBD9EA9362F7" sourceRef="handleCustomerRequestUserTask" targetRef="serviceUserTask"></sequenceFlow>
+    <userTask id="serviceUserTask" name="Service" activiti:assignee="${employee.username}">
+
+    </userTask>
+    <sequenceFlow id="sid-0DF89BFB-CC49-4CAE-BE5E-168954F74D3E" sourceRef="serviceUserTask" targetRef="vehicleServiceEndEvent"></sequenceFlow>
+    <endEvent id="vehicleServiceEndEvent" name="End Event"></endEvent>
+
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_vehicleServiceProcess">
+    <bpmndi:BPMNPlane bpmnElement="vehicleServiceProcess" id="BPMNPlane_vehicleServiceProcess">
+      <bpmndi:BPMNShape bpmnElement="vehicleServiceStartEvent" id="BPMNShape_vehicleServiceStartEvent">
+        <omgdc:Bounds height="30.0" width="30.0" x="75.0" y="120.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleCustomerRequestUserTask" id="BPMNShape_handleCustomerRequestUserTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="241.0" y="95.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="serviceUserTask" id="BPMNShape_serviceUserTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="465.0" y="95.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="vehicleServiceEndEvent" id="BPMNShape_vehicleServiceEndEvent">
+        <omgdc:Bounds height="28.0" width="28.0" x="705.0" y="121.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-7122F0EB-0FD3-4F6B-952E-BBD9EA9362F7" id="BPMNEdge_sid-7122F0EB-0FD3-4F6B-952E-BBD9EA9362F7">
+        <omgdi:waypoint x="341.0" y="135.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="135.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-1F641067-44A4-4E88-A3A9-55678DF0ACF2" id="BPMNEdge_sid-1F641067-44A4-4E88-A3A9-55678DF0ACF2">
+        <omgdi:waypoint x="105.0" y="135.0"></omgdi:waypoint>
+        <omgdi:waypoint x="241.0" y="135.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-0DF89BFB-CC49-4CAE-BE5E-168954F74D3E" id="BPMNEdge_sid-0DF89BFB-CC49-4CAE-BE5E-168954F74D3E">
+        <omgdi:waypoint x="565.0" y="135.0"></omgdi:waypoint>
+        <omgdi:waypoint x="705.0" y="135.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

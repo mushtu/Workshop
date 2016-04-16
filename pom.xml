@@ -51,6 +51,7 @@
                     <classLoaderClass>
                         org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader
                     </classLoaderClass>
+                    <port>8085</port>
                 </configuration>
             </plugin>
 

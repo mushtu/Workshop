@@ -1,4 +1,4 @@
-package com.mammutgroup.workshop.core.server.service;
+package com.mammutgroup.workshop.core.server.service.management;
 
 import com.mammutgroup.workshop.common.core.model.dto.SpareDto;
 import com.mammutgroup.workshop.core.server.service.crud.SpareCrudService;
@@ -8,7 +8,7 @@ import ir.amv.os.vaseline.base.architecture.server.layers.base.crud.service.IBas
  * @author mushtu
  * @since 4/10/16.
  */
-public interface SpareService extends SpareCrudService {
+public interface SpareManagementService extends SpareCrudService {
 
 
 }

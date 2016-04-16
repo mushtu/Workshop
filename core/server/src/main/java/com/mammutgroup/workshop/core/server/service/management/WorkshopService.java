@@ -1,4 +1,4 @@
-package com.mammutgroup.workshop.core.server.service;
+package com.mammutgroup.workshop.core.server.service.management;
 
 import com.mammutgroup.workshop.core.server.service.crud.WorkshopCrudService;
 
