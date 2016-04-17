@@ -4,14 +4,11 @@ import ir.amv.os.vaseline.base.core.shared.base.dto.base.IBaseDto;
 import ir.amv.os.vaseline.base.core.shared.base.dto.paging.PagingDto;
 import ir.amv.os.vaseline.base.core.shared.base.exc.BaseVaselineClientException;
 import ir.amv.os.vaseline.ws.rest.server.base.crud.IBaseCrudRestService;
-import ir.amv.os.vaseline.ws.rest.server.multiparam.annot.JsonMultParam;
-import ir.amv.os.vaseline.ws.rest.server.multiparam.annot.JsonParam;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author mushtu

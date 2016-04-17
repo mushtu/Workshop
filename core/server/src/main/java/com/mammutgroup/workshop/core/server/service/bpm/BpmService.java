@@ -6,12 +6,13 @@ import ir.amv.os.vaseline.base.core.server.base.exc.BaseVaselineServerException;
 import ir.amv.os.vaseline.base.core.shared.base.dto.paging.PagingDto;
 import ir.amv.os.vaseline.bpm.api.server.model.compltask.CompleteTaskResponseServer;
 import ir.amv.os.vaseline.bpm.api.server.model.startproc.StartProcessResultServer;
-import ir.amv.os.vaseline.bpm.api.shared.model.compltask.CompleteTaskRequestDto;
-import ir.amv.os.vaseline.bpm.api.shared.model.startproc.AbstractStartProcessReqDto;
+import ir.amv.os.vaseline.bpm.api.shared.model.compltask.AbstractCompleteTaskRequestDto;
 
+import ir.amv.os.vaseline.bpm.api.shared.model.startproc.AbstractStartProcessReqDto;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author mushtu
@@ -20,7 +21,7 @@ import java.util.List;
 
 public interface BpmService extends IBaseService{
 
-    CompleteTaskResponseServer completeTask(CompleteTaskRequestDto request) throws BaseVaselineServerException;
+    CompleteTaskResponseServer completeTask(AbstractCompleteTaskRequestDto request) throws BaseVaselineServerException;
 
     boolean claimTask(String taskId) throws BaseVaselineServerException;
 
@@ -36,5 +37,10 @@ public interface BpmService extends IBaseService{
 
     StartProcessResultServer startProcess(AbstractStartProcessReqDto reqDto) throws BaseVaselineServerException;
 
+    List<String> getActiveActivityIds(String executionId);
+
+    Map<String, Object> getProcessVariables(String processInstanceId);
+
+    Map<String, Object> getProcessVariablesByTaskId(String taskId);
 
 }

@@ -12,15 +12,11 @@ import ir.amv.os.vaseline.file.api.impl.config.VaselineFileConfig;
 import ir.amv.os.vaseline.file.db.impl.config.VaselineFileDbConfig;
 import ir.amv.os.vaseline.reporting.async.rest.config.VaselineReportingAsyncRestConfig;
 import ir.amv.os.vaseline.reporting.core.impl.config.VaselineReportingCoreImplConfig;
-import ir.amv.os.vaseline.security.authentication.api.shared.api.IAuthenticationApi;
 import ir.amv.os.vaseline.security.authentication.inapp.config.VaselineAuthenticationInAppConfig;
-import ir.amv.os.vaseline.security.authentication.spring.impl.server.api.impl.AuthenticationApiImpl;
 import ir.amv.os.vaseline.security.authentication.spring.impl.server.model.user.BaseUserEntity;
 import ir.amv.os.vaseline.security.authentication.spring.impl.server.model.user.IBaseUserApi;
-import ir.amv.os.vaseline.ws.rest.config.VaselineWebServiceRestConfig;
 import ir.amv.os.vaseline.ws.rest.secured.config.VaselineSecuredWebServiceRestConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.core.io.Resource;
@@ -45,6 +41,7 @@ import java.io.IOException;
         VaselineFileConfig.class,
         VaselineFileDbConfig.class,
         VaselineAuthenticationInAppConfig.class,
+        SecurityConfig.class,
         VaselineBpmActivitiConfig.class,
         ConfigurersConfiguration.class
 

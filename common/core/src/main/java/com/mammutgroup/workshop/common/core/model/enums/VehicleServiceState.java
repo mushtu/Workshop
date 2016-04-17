@@ -5,7 +5,7 @@ package com.mammutgroup.workshop.common.core.model.enums;
  */
 public enum VehicleServiceState {
 
-    INITIAL,
+    PENDING,
     IN_PROGRESS,
     COMPLETED
 }

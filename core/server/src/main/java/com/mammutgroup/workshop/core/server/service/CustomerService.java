@@ -4,7 +4,6 @@ import com.mammutgroup.workshop.common.core.model.enums.VehicleServiceState;
 import com.mammutgroup.workshop.common.core.model.request.VehicleServiceRequest;
 import com.mammutgroup.workshop.common.core.model.response.VehicleServiceResponse;
 import ir.amv.os.vaseline.base.core.server.base.exc.BaseVaselineServerException;
-import ir.amv.os.vaseline.bpm.api.shared.model.startproc.StartProcessResultDto;
 
 /**
  * Created by mushtu on 4/14/16.

@@ -4,8 +4,8 @@ import com.mammutgroup.workshop.common.core.model.dto.bpm.TaskDto;
 import com.mammutgroup.workshop.core.server.service.bpm.BpmService;
 import ir.amv.os.vaseline.base.core.server.base.exc.BaseVaselineServerException;
 import ir.amv.os.vaseline.base.core.shared.base.dto.paging.PagingDto;
-import ir.amv.os.vaseline.bpm.api.server.api.IVaselineBpmApi;
-import ir.amv.os.vaseline.bpm.api.shared.model.compltask.CompleteTaskRequestDto;
+import ir.amv.os.vaseline.bpm.api.shared.model.compltask.AbstractCompleteTaskRequestDto;
+import ir.amv.os.vaseline.ws.rest.config.exclude.annot.ExcludeRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,7 @@ import java.util.List;
  * @author mushtu
  * @since 4/16/16.
  */
+@ExcludeRestService
 @Service
 public class TaskRestServiceImpl implements TaskRestService {
 
@@ -36,7 +37,7 @@ public class TaskRestServiceImpl implements TaskRestService {
 
 
     @Override
-    public void completeTask(CompleteTaskRequestDto request) throws BaseVaselineServerException {
+    public void completeTask(AbstractCompleteTaskRequestDto request) throws BaseVaselineServerException {
         bpmService.completeTask(request);
     }
 

@@ -15,6 +15,7 @@ public class VehicleServiceRequest extends AbstractStartProcessReqDto implements
 
     private VehicleDto vehicle;
     private VehicleServiceDto service;
+    private Map<String,Object> extraVariables = new HashMap<String, Object>();
 
     public VehicleDto getVehicle() {
         return vehicle;
@@ -43,7 +44,16 @@ public class VehicleServiceRequest extends AbstractStartProcessReqDto implements
         Map<String,Object> vars = new HashMap<String, Object>();
         vars.put("vehicle",vehicle);
         vars.put("service",service);
+        vars.putAll(extraVariables);
         return vars;
+    }
+
+    public void addExtraVariable(String key,Object value)
+    {
+        if(!key.equals("vehicle") && !key.equals("service"))
+        {
+            extraVariables.put(key,value);
+        }
     }
 
     public ProcessDefinition getProcessDefinition() {

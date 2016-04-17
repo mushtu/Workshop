@@ -93,7 +93,7 @@
 
     <!-- Spring Security -->
     <!-- Secures the application -->
-    <!--
+
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -105,5 +105,5 @@
         <dispatcher>ERROR</dispatcher>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
-    -->
+
 </web-app>

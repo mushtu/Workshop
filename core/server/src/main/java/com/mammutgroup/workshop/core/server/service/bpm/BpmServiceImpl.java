@@ -9,15 +9,15 @@ import ir.amv.os.vaseline.bpm.api.server.model.compltask.CompleteTaskRequestServ
 import ir.amv.os.vaseline.bpm.api.server.model.compltask.CompleteTaskResponseServer;
 import ir.amv.os.vaseline.bpm.api.server.model.startproc.StartProcessReqServer;
 import ir.amv.os.vaseline.bpm.api.server.model.startproc.StartProcessResultServer;
-import ir.amv.os.vaseline.bpm.api.shared.model.compltask.CompleteTaskRequestDto;
+import ir.amv.os.vaseline.bpm.api.shared.model.compltask.AbstractCompleteTaskRequestDto;
 import ir.amv.os.vaseline.bpm.api.shared.model.startproc.AbstractStartProcessReqDto;
-
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author mushtu
@@ -31,7 +31,7 @@ public class BpmServiceImpl extends BaseServiceImpl implements BpmService {
 
 
     @Override
-    public CompleteTaskResponseServer completeTask(CompleteTaskRequestDto request) throws BaseVaselineServerException {
+    public CompleteTaskResponseServer completeTask(AbstractCompleteTaskRequestDto request) throws BaseVaselineServerException {
 
         CompleteTaskRequestServer r = convert(request,CompleteTaskRequestServer.class);
         return bpmApi.completeTask(r);
@@ -75,4 +75,21 @@ public class BpmServiceImpl extends BaseServiceImpl implements BpmService {
     public StartProcessResultServer startProcess(AbstractStartProcessReqDto reqDto) throws BaseVaselineServerException {
         return bpmApi.startProcess(convert(reqDto,StartProcessReqServer.class));
     }
+
+    @Override
+    public List<String> getActiveActivityIds(String executionId) {
+        return bpmApi.getActiveActivityIds(executionId);
+    }
+
+    @Override
+    public Map<String, Object> getProcessVariables(String processInstanceId) {
+        return bpmApi.getProcessVariables(processInstanceId);
+    }
+
+    @Override
+    public Map<String, Object> getProcessVariablesByTaskId(String taskId) {
+        return bpmApi.getProcessVariablesByTaskId(taskId);
+    }
+
+
 }

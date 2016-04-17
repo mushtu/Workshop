@@ -2,7 +2,10 @@ package com.mammutgroup.workshop.core.shared.domain.model;
 
 import ir.amv.os.vaseline.base.architecture.impl.hibernate.server.ent.BaseEntityImpl;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * @author mushtu

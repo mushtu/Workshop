@@ -1,17 +1,13 @@
 package com.mammutgroup.workshop.core.server.rest.management;
 
-import com.mammutgroup.workshop.common.core.model.dto.ServiceDto;
-import com.mammutgroup.workshop.common.core.model.request.VehicleServiceRequest;
+import com.mammutgroup.workshop.common.core.model.request.CompleteVehicleServiceResourceAssignmentTask;
+import com.mammutgroup.workshop.common.core.model.request.CompleteVehicleServiceTask;
+import ir.amv.os.vaseline.base.core.server.base.exc.BaseVaselineServerException;
 import ir.amv.os.vaseline.base.core.shared.base.exc.BaseVaselineClientException;
 import ir.amv.os.vaseline.ws.rest.server.base.parent.IBaseRestService;
 
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.List;
 
 /**
  * Vehicle Service Management API
@@ -22,21 +18,12 @@ import java.util.List;
 @Path("/services")
 public interface VehicleServiceRestManagement extends IBaseRestService {
 
-//
-//    /**
-//     * starts a vehicle service process
-//     *
-//     * @return
-//     */
-//    @Path("/request")
-//    @POST
-//    @Produces(MediaType.APPLICATION_JSON)
-//    void startService(VehicleServiceRequest request);
+    @POST
+    @Path("/resourceAssignment")
+    void completeVehicleServiceResourceAssignmentTask(CompleteVehicleServiceResourceAssignmentTask cmpTask) throws BaseVaselineClientException, BaseVaselineServerException;
 
-    @GET
-    @Produces({MediaType.APPLICATION_JSON})
-    List<ServiceDto> getServices() throws BaseVaselineClientException;
-
-
+    @POST
+    @Path("/complete")
+    void completeVehicleServiceTask(CompleteVehicleServiceTask cmpTask) throws BaseVaselineClientException;
 
 }
