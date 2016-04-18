@@ -1,8 +1,6 @@
 package com.mammutgroup.workshop.core.shared.domain.model;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,8 +15,7 @@ import java.util.Set;
 public class EmployeeEntity extends WorkshopBaseUser {
 
     private Set<WorkshopOffice> offices = new HashSet<WorkshopOffice>(0);
-
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     public Set<WorkshopOffice> getOffices() {
         return offices;
     }

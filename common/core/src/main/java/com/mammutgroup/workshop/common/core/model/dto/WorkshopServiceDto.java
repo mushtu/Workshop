@@ -6,7 +6,7 @@ import ir.amv.os.vaseline.base.core.shared.base.dto.base.impl.BaseDtoImpl;
  * @author mushtu
  * @since 4/10/16.
  */
-public class VehicleServiceDto extends BaseDtoImpl<Long> {
+public class WorkshopServiceDto extends BaseDtoImpl<Long> {
 
     private String name;
 

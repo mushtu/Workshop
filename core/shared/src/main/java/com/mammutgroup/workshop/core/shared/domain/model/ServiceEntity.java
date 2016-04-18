@@ -21,7 +21,7 @@ public class ServiceEntity extends BaseEntityImpl<Long> {
     private Long endDate;
 
     private LineEntity line;
-    private VehicleServiceEntity service;
+    private WorkshopServiceEntity service;
 
 
     @ManyToOne
@@ -34,11 +34,11 @@ public class ServiceEntity extends BaseEntityImpl<Long> {
     }
 
     @ManyToOne
-    public VehicleServiceEntity getService() {
+    public WorkshopServiceEntity getService() {
         return service;
     }
 
-    public void setService(VehicleServiceEntity service) {
+    public void setService(WorkshopServiceEntity service) {
         this.service = service;
     }
 

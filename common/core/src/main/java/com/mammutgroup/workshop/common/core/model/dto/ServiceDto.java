@@ -11,7 +11,7 @@ public class ServiceDto extends BaseDtoImpl<Long> {
     private Long startDate;
     private Long endDate;
 
-    private VehicleServiceDto vehicleService;
+    private WorkshopServiceDto vehicleService;
     private LineDto line;
 
     public Long getStartDate() {
@@ -30,11 +30,11 @@ public class ServiceDto extends BaseDtoImpl<Long> {
         this.endDate = endDate;
     }
 
-    public VehicleServiceDto getVehicleService() {
+    public WorkshopServiceDto getVehicleService() {
         return vehicleService;
     }
 
-    public void setVehicleService(VehicleServiceDto vehicleService) {
+    public void setVehicleService(WorkshopServiceDto vehicleService) {
         this.vehicleService = vehicleService;
     }
 

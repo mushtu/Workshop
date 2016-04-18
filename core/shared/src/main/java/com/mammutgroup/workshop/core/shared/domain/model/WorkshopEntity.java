@@ -18,8 +18,9 @@ public class WorkshopEntity extends BaseEntityImpl<Long> {
     private String name;
     private String address;
     private StockEntity stock;
-    private Set<VehicleServiceEntity> services = new HashSet<VehicleServiceEntity>(0);
+    private Set<WorkshopServiceEntity> services = new HashSet<WorkshopServiceEntity>(0);
     private Set<LineEntity> lines = new HashSet<LineEntity>(0);
+    private Set<WorkshopOffice> employeeOffices = new HashSet<WorkshopOffice>(0);
 
     public String getName() {
         return name;
@@ -46,12 +47,12 @@ public class WorkshopEntity extends BaseEntityImpl<Long> {
         this.stock = stock;
     }
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    public Set<VehicleServiceEntity> getServices() {
+    @ManyToMany(fetch = FetchType.EAGER)
+    public Set<WorkshopServiceEntity> getServices() {
         return services;
     }
 
-    public void setServices(Set<VehicleServiceEntity> services) {
+    public void setServices(Set<WorkshopServiceEntity> services) {
         this.services = services;
     }
 
@@ -62,5 +63,14 @@ public class WorkshopEntity extends BaseEntityImpl<Long> {
 
     public void setLines(Set<LineEntity> lines) {
         this.lines = lines;
+    }
+
+    @OneToMany(mappedBy = "workshop",cascade = CascadeType.ALL)
+    public Set<WorkshopOffice> getEmployeeOffices() {
+        return employeeOffices;
+    }
+
+    public void setEmployeeOffices(Set<WorkshopOffice> employeeOffices) {
+        this.employeeOffices = employeeOffices;
     }
 }

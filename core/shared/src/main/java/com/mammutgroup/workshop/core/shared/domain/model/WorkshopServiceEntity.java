@@ -13,8 +13,8 @@ import javax.persistence.Table;
  * @since 4/2/16.
  */
 @Entity
-@Table(name = "vehicle_service")
-public class VehicleServiceEntity extends BaseEntityImpl<Long> {
+@Table(name = "workshop_service")
+public class WorkshopServiceEntity extends BaseEntityImpl<Long> {
 
     private String name;
 

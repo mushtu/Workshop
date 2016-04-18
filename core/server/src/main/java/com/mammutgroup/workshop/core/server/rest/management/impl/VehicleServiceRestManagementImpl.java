@@ -1,9 +1,8 @@
 package com.mammutgroup.workshop.core.server.rest.management.impl;
 
-import com.mammutgroup.workshop.common.core.model.dto.EmployeeDto;
 import com.mammutgroup.workshop.common.core.model.dto.LineDto;
 import com.mammutgroup.workshop.common.core.model.dto.ServiceDto;
-import com.mammutgroup.workshop.common.core.model.dto.VehicleServiceDto;
+import com.mammutgroup.workshop.common.core.model.dto.WorkshopServiceDto;
 import com.mammutgroup.workshop.common.core.model.request.CompleteVehicleServiceResourceAssignmentTask;
 import com.mammutgroup.workshop.common.core.model.request.CompleteVehicleServiceTask;
 import com.mammutgroup.workshop.core.server.rest.management.VehicleServiceRestManagement;
@@ -12,6 +11,7 @@ import com.mammutgroup.workshop.core.server.service.management.ServiceManagement
 import ir.amv.os.vaseline.base.core.server.base.exc.BaseVaselineServerException;
 import ir.amv.os.vaseline.base.core.shared.base.exc.BaseVaselineClientException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -21,6 +21,7 @@ import java.util.Map;
 /**
  * Created by mushtu on 4/14/16.
  */
+
 public class VehicleServiceRestManagementImpl implements VehicleServiceRestManagement {
 
 
@@ -34,10 +35,10 @@ public class VehicleServiceRestManagementImpl implements VehicleServiceRestManag
     public void completeVehicleServiceResourceAssignmentTask(CompleteVehicleServiceResourceAssignmentTask cmpTask) throws BaseVaselineClientException, BaseVaselineServerException {
 
         Map<String,Object> vars = bpmService.getProcessVariablesByTaskId(cmpTask.getTaskId());
-        VehicleServiceDto vehicleServiceDto= (VehicleServiceDto) vars.get("service");
+        WorkshopServiceDto workshopServiceDto = (WorkshopServiceDto) vars.get("service");
         //EmployeeDto employeeDto = (EmployeeDto) vars.get("employee");
         ServiceDto serviceDto = new ServiceDto();
-        serviceDto.setVehicleService(vehicleServiceDto);
+        serviceDto.setVehicleService(workshopServiceDto);
         serviceDto.setStartDate(new Date().getTime());
         serviceDto.setLine(cmpTask.getLine());
         this.service.save(serviceDto);

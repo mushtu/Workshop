@@ -23,7 +23,7 @@ public class WorkshopOffice extends BaseEntityImpl<Long> {
     private Long salary;
     private EmployeeEntity employee;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     public WorkshopEntity getWorkshop() {
         return workshop;
     }
@@ -32,7 +32,7 @@ public class WorkshopOffice extends BaseEntityImpl<Long> {
         this.workshop = workshop;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     public OfficeEntity getOffice() {
         return office;
     }
@@ -41,7 +41,7 @@ public class WorkshopOffice extends BaseEntityImpl<Long> {
         this.office = office;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     public EmployeeEntity getEmployee() {
         return employee;
     }

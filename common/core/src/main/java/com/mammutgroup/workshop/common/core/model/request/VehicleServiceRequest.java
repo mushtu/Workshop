@@ -1,7 +1,7 @@
 package com.mammutgroup.workshop.common.core.model.request;
 
 import com.mammutgroup.workshop.common.core.model.dto.VehicleDto;
-import com.mammutgroup.workshop.common.core.model.dto.VehicleServiceDto;
+import com.mammutgroup.workshop.common.core.model.dto.WorkshopServiceDto;
 import ir.amv.os.vaseline.bpm.api.shared.model.startproc.AbstractStartProcessReqDto;
 
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import java.util.Map;
 public class VehicleServiceRequest extends AbstractStartProcessReqDto implements ProcessDefinitionAware{
 
     private VehicleDto vehicle;
-    private VehicleServiceDto service;
+    private WorkshopServiceDto service;
     private Map<String,Object> extraVariables = new HashMap<String, Object>();
 
     public VehicleDto getVehicle() {
@@ -25,11 +25,11 @@ public class VehicleServiceRequest extends AbstractStartProcessReqDto implements
         this.vehicle = vehicle;
     }
 
-    public VehicleServiceDto getService() {
+    public WorkshopServiceDto getService() {
         return service;
     }
 
-    public void setService(VehicleServiceDto service) {
+    public void setService(WorkshopServiceDto service) {
         this.service = service;
     }
 

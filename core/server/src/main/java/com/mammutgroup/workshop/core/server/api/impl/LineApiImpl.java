@@ -13,4 +13,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class LineApiImpl extends BaseCrudApiImpl<LineEntity, LineDto, Long, LineDao> implements LineApi {
+
+
 }

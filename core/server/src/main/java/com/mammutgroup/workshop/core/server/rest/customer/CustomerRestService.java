@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by mushtu on 4/14/16.
  */
-@Path("/service")
+@Path("/customer-service")
 public interface CustomerRestService {
 
     @Produces({MediaType.APPLICATION_JSON})

@@ -17,10 +17,13 @@ import java.util.Set;
 @Table(name = "line")
 public class LineEntity extends BaseEntityImpl<Long> {
 
-    private String lineNumber;
+    @Column(unique = true)
+    private int lineNumber;
 
     private WorkshopEntity workshop;
     private Set<ServiceEntity> services = new HashSet<ServiceEntity>(0);
+    private ServiceEntity currentService;
+
     //private ServiceEntity currentService ; // can be handled by service start dates
 
     @ManyToOne
@@ -42,11 +45,20 @@ public class LineEntity extends BaseEntityImpl<Long> {
         this.services = services;
     }
 
-    public String getLineNumber() {
+    @OneToOne(mappedBy = "line")
+    public ServiceEntity getCurrentService() {
+        return currentService;
+    }
+
+    public void setCurrentService(ServiceEntity currentService) {
+        this.currentService = currentService;
+    }
+
+    public int getLineNumber() {
         return lineNumber;
     }
 
-    public void setLineNumber(String lineNumber) {
+    public void setLineNumber(int lineNumber) {
         this.lineNumber = lineNumber;
     }
 }
