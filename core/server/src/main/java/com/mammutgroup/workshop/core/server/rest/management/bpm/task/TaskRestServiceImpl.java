@@ -16,7 +16,6 @@ import java.util.List;
  * @author mushtu
  * @since 4/16/16.
  */
-@ExcludeRestService
 @Service
 public class TaskRestServiceImpl implements TaskRestService {
 

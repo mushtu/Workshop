@@ -15,7 +15,7 @@ import javax.ws.rs.Path;
  * @since 4/10/16.
  */
 
-//@Path("/workshop/services")
+@Path("/manage")
 public interface VehicleServiceRestManagement extends IBaseRestService {
 
     @POST
@@ -24,6 +24,6 @@ public interface VehicleServiceRestManagement extends IBaseRestService {
 
     @POST
     @Path("/complete")
-    void completeVehicleServiceTask(CompleteVehicleServiceTask cmpTask) throws BaseVaselineClientException;
+    void completeVehicleServiceTask(CompleteVehicleServiceTask cmpTask) throws BaseVaselineClientException, BaseVaselineServerException;
 
 }

@@ -22,7 +22,7 @@ public class LineEntity extends BaseEntityImpl<Long> {
 
     private WorkshopEntity workshop;
     private Set<ServiceEntity> services = new HashSet<ServiceEntity>(0);
-    private ServiceEntity currentService;
+    //private ServiceEntity currentService;
 
     //private ServiceEntity currentService ; // can be handled by service start dates
 
@@ -36,7 +36,7 @@ public class LineEntity extends BaseEntityImpl<Long> {
         this.workshop = workshop;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "line", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "line",cascade = CascadeType.ALL)
     public Set<ServiceEntity> getServices() {
         return services;
     }
@@ -45,14 +45,14 @@ public class LineEntity extends BaseEntityImpl<Long> {
         this.services = services;
     }
 
-    @OneToOne(mappedBy = "line")
-    public ServiceEntity getCurrentService() {
-        return currentService;
-    }
-
-    public void setCurrentService(ServiceEntity currentService) {
-        this.currentService = currentService;
-    }
+//    @OneToOne(mappedBy = "line")
+//    public ServiceEntity getCurrentService() {
+//        return currentService;
+//    }
+//
+//    public void setCurrentService(ServiceEntity currentService) {
+//        this.currentService = currentService;
+//    }
 
     public int getLineNumber() {
         return lineNumber;

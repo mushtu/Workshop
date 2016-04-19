@@ -91,5 +91,10 @@ public class BpmServiceImpl extends BaseServiceImpl implements BpmService {
         return bpmApi.getProcessVariablesByTaskId(taskId);
     }
 
+    @Override
+    public boolean isProcessExist(String processId) {
+        return bpmApi.isProcessExist(processId);
+    }
+
 
 }

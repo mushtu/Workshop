@@ -7,6 +7,7 @@ import com.mammutgroup.workshop.common.core.model.request.CompleteVehicleService
 import com.mammutgroup.workshop.common.core.model.request.CompleteVehicleServiceTask;
 import com.mammutgroup.workshop.core.server.rest.management.VehicleServiceRestManagement;
 import com.mammutgroup.workshop.core.server.service.bpm.BpmService;
+import com.mammutgroup.workshop.core.server.service.management.LineManagementService;
 import com.mammutgroup.workshop.core.server.service.management.ServiceManagementService;
 import ir.amv.os.vaseline.base.core.server.base.exc.BaseVaselineServerException;
 import ir.amv.os.vaseline.base.core.shared.base.exc.BaseVaselineClientException;
@@ -21,10 +22,12 @@ import java.util.Map;
 /**
  * Created by mushtu on 4/14/16.
  */
-
+@Service
 public class VehicleServiceRestManagementImpl implements VehicleServiceRestManagement {
 
 
+    @Autowired
+    private LineManagementService lineManagementService;
     @Autowired
     private ServiceManagementService service;
     @Autowired
@@ -40,19 +43,38 @@ public class VehicleServiceRestManagementImpl implements VehicleServiceRestManag
         ServiceDto serviceDto = new ServiceDto();
         serviceDto.setVehicleService(workshopServiceDto);
         serviceDto.setStartDate(new Date().getTime());
-        serviceDto.setLine(cmpTask.getLine());
-        this.service.save(serviceDto);
-        bpmService.completeTask(cmpTask);
+
+        LineDto lineDto = lineManagementService.getById(cmpTask.getLine().getId());
+        if(lineDto != null)
+        {
+            //save new service
+            serviceDto.setLine(lineDto);
+            Long id = this.service.save(serviceDto);
+            serviceDto.setId(id);
+            lineDto.setCurrentService(serviceDto);
+            // save line
+            //lineManagementService.update(lineDto);
+            cmpTask.setLine(lineDto);
+            bpmService.completeTask(cmpTask);
+        }
 
     }
 
     @Override
-    public void completeVehicleServiceTask(CompleteVehicleServiceTask cmpTask) throws BaseVaselineClientException {
+    public void completeVehicleServiceTask(CompleteVehicleServiceTask cmpTask) throws BaseVaselineClientException, BaseVaselineServerException {
         Map<String,Object> vars = bpmService.getProcessVariablesByTaskId(cmpTask.getTaskId());
         LineDto lineDto = (LineDto) vars.get("line");
-        ServiceDto serviceDto = new ServiceDto();
-        serviceDto.setLine(lineDto);
-        List<ServiceDto> serviceDtoList = service.searchByExample(serviceDto);
+        ServiceDto serviceDto = lineDto.getCurrentService();
+        if(serviceDto != null)
+        {
+            serviceDto.setEndDate(new Date().getTime());
+            //lineDto.setCurrentService(null);
+            //lineManagementService.update(lineDto);
+            service.update(serviceDto);
+            bpmService.completeTask(cmpTask);
+        }
+        //List<ServiceDto> serviceDtoList = service.searchByExample(serviceDto);
+
         //todo
     }
 }

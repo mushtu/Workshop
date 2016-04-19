@@ -24,6 +24,6 @@ public class CustomerRestServiceImpl implements CustomerRestService {
 
     @Override
     public VehicleServiceState serviceState(String id) {
-        return null;
+        return customerService.getServiceState(id);
     }
 }

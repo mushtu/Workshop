@@ -17,4 +17,14 @@
         </allowed-exceptions>
 
     </configuration>
+    <!--<mapping>-->
+        <!--<class-a>com.mammutgroup.workshop.core.shared.domain.model.LineEntity</class-a>-->
+        <!--<class-b>com.mammutgroup.workshop.common.core.model.dto.LineDto</class-b>-->
+        <!--<field custom-converter=-->
+                       <!--"com.mammutgroup.workshop.core.server.dozer.LineEntityToLineDtoConverter">-->
+            <!--<a>currentService</a>-->
+            <!--<b>free</b>-->
+        <!--</field>-->
+    <!--</mapping>-->
+    
 </mappings>

@@ -20,12 +20,12 @@ public interface TaskRestService extends IBaseRestService {
 
     @Path("/assigned")
     @Produces({MediaType.APPLICATION_JSON})
-    @GET
+    @POST
     List<TaskDto> getUserAssignedTasks(PagingDto pagingDto) throws BaseVaselineServerException;
 
     @Path("/candidates")
     @Produces({MediaType.APPLICATION_JSON})
-    @GET
+    @POST
     List<TaskDto> getUserCandidateTasks(PagingDto pagingDto) throws BaseVaselineServerException;
 
     @Path("/completeTask")

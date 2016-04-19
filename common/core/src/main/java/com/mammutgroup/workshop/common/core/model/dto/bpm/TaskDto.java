@@ -13,6 +13,8 @@
 
 package com.mammutgroup.workshop.common.core.model.dto.bpm;
 
+import ir.amv.os.vaseline.base.core.shared.base.dto.base.impl.BaseDtoImpl;
+
 import java.util.Date;
 
 
@@ -20,7 +22,7 @@ import java.util.Date;
  * 
  * @author Frederik Heremans
  */
-public class TaskDto {
+public class TaskDto extends BaseDtoImpl<String> {
 
   private String owner;
   private String assignee;

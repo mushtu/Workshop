@@ -36,7 +36,7 @@ public class CustomerServiceImpl extends BaseServiceImpl implements CustomerServ
         customerDto.setUsername(authenticationAPI.getCurrentUsername());
         List<CustomerEntity> list = customerApi.searchByExample(customerDto);
         if(list.size()  == 1){
-            request.addExtraVariable("customer",list.get(0));
+            request.addExtraVariable("customer",convert(list.get(0),CustomerDto.class));
         }else
             throw new BaseVaselineServerException();
 
@@ -45,13 +45,18 @@ public class CustomerServiceImpl extends BaseServiceImpl implements CustomerServ
 
     @Override
     public VehicleServiceState getServiceState(String id) {
-        List<String> actives = bpmService.getActiveActivityIds(id);
-        if(actives.contains("handleCustomerRequestUserTask"))
-            return VehicleServiceState.PENDING;
-        if(actives.contains("serviceUserTask"))
-            return VehicleServiceState.IN_PROGRESS;
-        if(actives.size() == 0)
+
+        if(bpmService.isProcessExist(id)) {
+            List<String> actives = bpmService.getActiveActivityIds(id);
+            if (actives.contains("vehicleServiceResourceAssignmentTask"))
+                return VehicleServiceState.PENDING;
+            else if (actives.contains("vehicleServiceTask"))
+                return VehicleServiceState.IN_PROGRESS;
+            else
+                return VehicleServiceState.COMPLETED;
+        }
+        else
             return VehicleServiceState.COMPLETED;
-        return null;
+
     }
 }

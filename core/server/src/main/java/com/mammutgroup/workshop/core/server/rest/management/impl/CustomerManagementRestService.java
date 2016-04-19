@@ -11,5 +11,5 @@ import org.springframework.stereotype.Service;
  * @since 4/14/16.
  */
 @Service
-public class CustomerRestService extends BaseCrudRestServiceImpl<CustomerDto, Long, CustomerManagementService> implements CustomerRepositoryRestService {
+public class CustomerManagementRestService extends BaseCrudRestServiceImpl<CustomerDto, Long, CustomerManagementService> implements com.mammutgroup.workshop.core.server.rest.management.CustomerRepositoryRestService {
 }

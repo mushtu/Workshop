@@ -43,7 +43,7 @@ import java.io.IOException;
         VaselineAuthenticationInAppConfig.class,
         SecurityConfig.class,
         VaselineBpmActivitiConfig.class,
-        ConfigurersConfiguration.class
+        Configurers.class
 
 })
 @EnableAspectJAutoProxy(proxyTargetClass = true)

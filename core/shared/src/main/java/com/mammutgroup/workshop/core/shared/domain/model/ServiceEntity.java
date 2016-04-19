@@ -4,6 +4,7 @@ import ir.amv.os.vaseline.base.architecture.impl.hibernate.server.ent.BaseEntity
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,7 +24,6 @@ public class ServiceEntity extends BaseEntityImpl<Long> {
     private LineEntity line;
     private WorkshopServiceEntity service;
 
-
     @ManyToOne
     public LineEntity getLine() {
         return line;
@@ -33,7 +33,7 @@ public class ServiceEntity extends BaseEntityImpl<Long> {
         this.line = line;
     }
 
-    @ManyToOne
+    @ManyToOne()
     public WorkshopServiceEntity getService() {
         return service;
     }

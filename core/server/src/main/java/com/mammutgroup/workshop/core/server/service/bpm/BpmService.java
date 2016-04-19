@@ -43,4 +43,6 @@ public interface BpmService extends IBaseService{
 
     Map<String, Object> getProcessVariablesByTaskId(String taskId);
 
+    boolean isProcessExist(String processId);
+
 }
